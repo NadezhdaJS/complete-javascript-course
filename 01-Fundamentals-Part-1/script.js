@@ -9,7 +9,7 @@ let country = 'Russia';
 //console.log(country);
 let continent = 'Eurasia';
 //console.log(continent);
-let population = '145 478 097'
+let population = '145 478 097';
 //console.log(population);
 
 /* console.log(typeof 'Harry');
