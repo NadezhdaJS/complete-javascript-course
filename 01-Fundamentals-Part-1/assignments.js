@@ -1,7 +1,6 @@
 const continent = 'Eurasia';
 const myCountry = 'Russia';
 let population = 145478097;
-let isIsland = true;
 const language = 'Russian';
 console.log(population / 2);
 population++;
