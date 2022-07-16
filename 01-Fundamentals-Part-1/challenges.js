@@ -38,7 +38,7 @@ if (dolphinsAverageScore > koalasAverageScore) {
 } */
 
 //1st bonus 
-const dolphins1Score = 97;
+/* const dolphins1Score = 97;
 const dolphins2Score = 112;
 const dolphins3Score = 101;
 const dolphinsAverageScore = (dolphins1Score + dolphins2Score + dolphins3Score) / 3;
@@ -62,3 +62,4 @@ else if (dolphinsAverageScore === koalasAverageScore) {
 else if (dolphinsAverageScore > koalasAverageScore) {
     console.log('Dolphins is the winner!')
 }
+ */
