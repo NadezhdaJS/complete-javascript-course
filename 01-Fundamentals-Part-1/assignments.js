@@ -12,6 +12,7 @@ const myCountry = 'Russia';
 let population = 145478097;
 const language = 'Russian';
 console.log(population / 2);
+isIsland = false;
 population++;
 let finlandPopulation = 6000000;
 console.log(population > finlandPopulation);
@@ -42,7 +43,7 @@ console.log('123' < 57);
 console.log(5 + 6 + Number('4') + 9 - 4 - 2);
  */
 
-const numNeighbours = Number(prompt('How many neighbour countries does your country have?'));
+/* const numNeighbours = Number(prompt('How many neighbour countries does your country have?'));
 console.log(numNeighbours);
 if (numNeighbours === 1) {
     console.log('Only 1 border!');
@@ -52,4 +53,11 @@ if (numNeighbours === 1) {
 else {
     console.log('No borders!')
 }
+ */
 
+if (language === 'English' && population < 50000000 && !isIsland) {
+    console.log(`You should live in ${myCountry}`)
+}
+else {
+    console.log(`${myCountry} does not meet your criteria`)
+}
