@@ -55,9 +55,10 @@ else {
 }
  */
 
-if (language === 'English' && population < 50000000 && !isIsland) {
+/* if (language === 'English' && population < 50000000 && !isIsland) {
     console.log(`You should live in ${myCountry}`)
 }
 else {
     console.log(`${myCountry} does not meet your criteria`)
 }
+ */
