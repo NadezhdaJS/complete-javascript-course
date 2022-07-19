@@ -29,3 +29,7 @@ const percentageOfWorld2 = function (population) {
 console.log(percentageOfWorld2(145));
 console.log(percentageOfWorld2(900));
 console.log(percentageOfWorld2(570));
+
+const percentageOfWorld3 = population => population / 7900 * 100;
+const percentageOfWorldPoulation3 = percentageOfWorld3(145);
+console.log(percentageOfWorldPoulation3);
