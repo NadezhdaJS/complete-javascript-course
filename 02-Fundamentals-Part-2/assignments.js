@@ -36,7 +36,7 @@ console.log(percentageOfWorldPoulation3);
 
 const describePopulation = function (country, population) {
     const percentageOfWorldPeople = percentageOfWorld1(population);
-    return `${country} has ${population} million people, which is about ${percentageOfWorldPeople} of the world.`
+    return `${country} has ${population} million people, which is about ${percentageOfWorldPeople}% of the world.`
 }
 
 console.log(describePopulation('Russia', 145));
