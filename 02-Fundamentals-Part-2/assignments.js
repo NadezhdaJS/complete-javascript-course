@@ -54,3 +54,8 @@ console.log(describePopulation('Italy', 45));
   describePopulation('Portugal', 10); 
   describePopulation('China', 1441); 
   describePopulation('USA', 332); */
+
+let populations = [145, 10, 1441, 332, 'Russia', 'Portugal', 'China', 'USA'];
+console.log(populations.length === 4);
+let percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
+console.log(percentages);
