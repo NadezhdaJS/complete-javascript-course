@@ -77,8 +77,14 @@ let myCountry = {
     population: 145,
     capitalCity: 'Moscow',
     language: 'Russian',
-    neighbours: ['Ukraine', 'Belarus', 'Finland', 'China']
+    neighbours: ['Ukraine', 'Belarus', 'Finland', 'China'],
+    describe: function () {
+        return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbours.length} neighbouring countries and a capital called ${this.capitalCity}.`;
+
+    }
 }
-console.log(myCountry)
+console.log(myCountry.describe())
 
 console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capitalCity}.`)
+
+
