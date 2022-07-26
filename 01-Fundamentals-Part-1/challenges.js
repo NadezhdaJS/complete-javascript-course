@@ -37,7 +37,7 @@ if (dolphinsAverageScore > koalasAverageScore) {
     console.log('Koalas is the winner!')
 } */
 
-//1st bonus 
+//1st bonus
 /* const dolphins1Score = 97;
 const dolphins2Score = 112;
 const dolphins3Score = 101;
@@ -65,8 +65,8 @@ else if (dolphinsAverageScore > koalasAverageScore) {
  */
 
 //Coding Challenge #4
-const bill = 10;
+/* const bill = 10;
 const tip = bill <= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 console.log(`The bill was ${bill}, the tip was ${tip}, and the total value 
-    ${bill + tip}`);
+    ${bill + tip}`); */
 

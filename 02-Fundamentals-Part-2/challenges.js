@@ -41,4 +41,26 @@ const calcTip = function (bill) {
 let bills = [125, 555, 44];
 let tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 let total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
-console.log(bills, tips, total) */ 
+console.log(bills, tips, total) */
+
+//Coding Challenge #3
+
+let mark = {
+    name: 'Mark Miller',
+    mass: 78,
+    height: 1.69,
+    calcBMI: function () {
+        return this.mass / this.height ** 2
+    }
+}
+
+let john = {
+    name: 'John Smith',
+    mass: 92,
+    height: 1.95,
+    calcBMI: function () {
+        return this.mass / this.height ** 2
+    }
+}
+
+console.log(mark.calcBMI() > john.calcBMI() ? `Mark's BMI (${mark.calcBMI()}) is higher than John's (${john.calcBMI()})!` : `John's BMI (${john.calcBMI()}) is higher than Mark's (${mark.calcBMI()})!`)
