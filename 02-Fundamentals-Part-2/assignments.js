@@ -71,3 +71,12 @@ if (neighbours.includes('Germany')) {
 console.log(neighbours.indexOf('France'));
 neighbours[1] = 'Australia';
 console.log(neighbours); */
+
+let myCountry = {
+    country: 'Russia',
+    population: 145,
+    capitalCity: 'Moscow',
+    language: 'Russian',
+    neighbours: ['Netherlands', 'France', 'Luxemburg', 'Germany']
+}
+console.log(myCountry)
