@@ -77,6 +77,8 @@ let myCountry = {
     population: 145,
     capitalCity: 'Moscow',
     language: 'Russian',
-    neighbours: ['Netherlands', 'France', 'Luxemburg', 'Germany']
+    neighbours: ['Ukraine', 'Belarus', 'Finland', 'China']
 }
 console.log(myCountry)
+
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capitalCity}.`)
