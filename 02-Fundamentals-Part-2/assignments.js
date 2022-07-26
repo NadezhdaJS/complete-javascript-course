@@ -60,7 +60,7 @@ console.log(populations.length === 4);
 let percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
 console.log(percentages); */
 
-let neighbours = ['Netherlands', 'France', 'Luxemburg', 'Germany'];
+/* let neighbours = ['Netherlands', 'France', 'Luxemburg', 'Germany'];
 neighbours.push('England');
 console.log(neighbours);
 neighbours.pop();
@@ -70,4 +70,4 @@ if (neighbours.includes('Germany')) {
 }
 console.log(neighbours.indexOf('France'));
 neighbours[1] = 'Australia';
-console.log(neighbours);
+console.log(neighbours); */
