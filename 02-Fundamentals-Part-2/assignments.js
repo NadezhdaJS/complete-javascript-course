@@ -22,7 +22,7 @@ console.log(percentageOfWorld1(145));
 console.log(percentageOfWorld1(900));
 console.log(percentageOfWorld1(570));
 
-const percentageOfWorld2 = function (population) {
+/* const percentageOfWorld2 = function (population) {
     return population / 7900 * 100
 }
 
@@ -41,7 +41,7 @@ const describePopulation = function (country, population) {
 
 console.log(describePopulation('Russia', 145));
 console.log(describePopulation('India', 900));
-console.log(describePopulation('Italy', 45));
+console.log(describePopulation('Italy', 45)); */
 
 //еще вариант
 /* const describePopulation = function (country, population) { 
@@ -55,7 +55,19 @@ console.log(describePopulation('Italy', 45));
   describePopulation('China', 1441); 
   describePopulation('USA', 332); */
 
-let populations = [145, 10, 1441, 332, 'Russia', 'Portugal', 'China', 'USA'];
+/* let populations = [145, 10, 1441, 332, 'Russia', 'Portugal', 'China', 'USA'];
 console.log(populations.length === 4);
 let percentages = [percentageOfWorld1(populations[0]), percentageOfWorld1(populations[1]), percentageOfWorld1(populations[2]), percentageOfWorld1(populations[3])];
-console.log(percentages);
+console.log(percentages); */
+
+let neighbours = ['Netherlands', 'France', 'Luxemburg', 'Germany'];
+neighbours.push('England');
+console.log(neighbours);
+neighbours.pop();
+console.log(neighbours);
+if (neighbours.includes('Germany')) {
+    console.log(`It's a country in a centre of Europe`)
+}
+console.log(neighbours.indexOf('France'));
+neighbours[1] = 'Australia';
+console.log(neighbours);
