@@ -21,7 +21,7 @@ function checkWinner(avgDolhins, avgKoalas) {
 checkWinner(avgDolhins, avgKoalas); */
 
 //Coding Challenge #2
-/* 
+/*
 let calcTip = function (bill) {
     let tip;
     if (bill >= 50 && bill <= 300) {
@@ -45,7 +45,7 @@ console.log(bills, tips, total) */
 
 //Coding Challenge #3
 
-let mark = {
+/* let mark = {
     name: 'Mark Miller',
     mass: 78,
     height: 1.69,
@@ -63,4 +63,4 @@ let john = {
     }
 }
 
-console.log(mark.calcBMI() > john.calcBMI() ? `Mark's BMI (${mark.calcBMI()}) is higher than John's (${john.calcBMI()})!` : `John's BMI (${john.calcBMI()}) is higher than Mark's (${mark.calcBMI()})!`)
+console.log(mark.calcBMI() > john.calcBMI() ? `Mark's BMI (${mark.calcBMI()}) is higher than John's (${john.calcBMI()})!` : `John's BMI (${john.calcBMI()}) is higher than Mark's (${mark.calcBMI()})!`) */
