@@ -72,7 +72,7 @@ console.log(neighbours.indexOf('France'));
 neighbours[1] = 'Australia';
 console.log(neighbours); */
 
-let myCountry = {
+/* let myCountry = {
     country: 'Russia',
     population: 145,
     capitalCity: 'Moscow',
@@ -85,6 +85,9 @@ let myCountry = {
 }
 console.log(myCountry.describe())
 
-console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capitalCity}.`)
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbours.length} neighbouring countries and a capital called ${myCountry.capitalCity}.`) */
 
 
+for (let voter = 1; voter <= 50; voter++) {
+    console.log(`Voter number ${voter} is currently voting`)
+}
