@@ -64,3 +64,28 @@ let john = {
 }
 
 console.log(mark.calcBMI() > john.calcBMI() ? `Mark's BMI (${mark.calcBMI()}) is higher than John's (${john.calcBMI()})!` : `John's BMI (${john.calcBMI()}) is higher than Mark's (${mark.calcBMI()})!`) */
+
+//Coding Challenge #5
+let bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+let tips = [];
+let totals = [];
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+}
+
+for (let index = 0; index < bills.length; index++) {
+    const tip = calcTip(bills[index]);
+    tips.push(tip);
+    totals.push(bills[index] + tip);
+}
+console.log(bills, tips, totals);
+
+let summ = [];
+let calcAverage = function (arr) {
+    let summ = 0;
+    for (let index = 0; index < arr.length; index++) {
+        summ += arr[index]
+    }
+    return summ / arr.length
+}
+console.log(calcAverage(totals))
