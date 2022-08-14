@@ -24,7 +24,6 @@ let changeScore = function (score) {
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
-  console.log(guess, typeof guess);
   //Когда инпут пустой
   if (!guess) {
     displayMessage('Not a number!');
