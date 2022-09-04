@@ -11,6 +11,9 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
 
   openingHours: {
     thu: {
@@ -27,3 +30,29 @@ const restaurant = {
     },
   },
 };
+
+//Распаковка массива
+let [main, , second] = restaurant.categories;
+console.log(main, second);
+/* let temp = main;
+main = second;
+second = temp;
+console.log(main, second); */
+//Смена значений
+[second, , main] = [main, , second];
+console.log(main, second);
+//Получаем значения из функции order
+const [mainCourse, secondCourse] = restaurant.order(2, 0);
+console.log(restaurant.order(2, 0));
+console.log(mainCourse, secondCourse);
+
+//Распаковка из вложенного массива
+const nested = [2, 4, [5, 6]];
+const [i, , j] = nested;
+console.log(i, j);
+const [g, , [z, c]] = nested; //здесь
+console.log(g, z, c);
+
+//
+let [p, m, u] = [1, 2, 3];
+console.log(p, m, u);
