@@ -14,6 +14,20 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  /* orderDelivery: function (obj) {
+    console.log(obj);
+  }, */
+  //Добавляем значения по умолчанию
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at  ${time}`
+    );
+  },
 
   openingHours: {
     thu: {
@@ -31,6 +45,43 @@ const restaurant = {
   },
 };
 
+restaurant.orderDelivery({ address: 'Street 145', starterIndex: 1 }); // При распаковке добавились значения по умолчанию
+//Добавление параметров функции. Нужно, когда много параметров и сложно запомнить порядок
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Street 12',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+//Распаковка объекта. Имена переменных совпадают с ключами объектов
+let { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+// Меняем имена переменных
+let {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+
+//Добавляем переменные к ключам, которых еще нет (значение по умолчанию)
+console.log(restaurantName, hours, tags);
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+//Меняем переменные, которые уже существовали
+let x = 100;
+let y = 30;
+let obj = { x: 1, y: 2, l: 3 };
+({ x, y } = obj); //заключаем в скобки
+console.log(x, y);
+//Распаковка из вложенного объекта
+let {
+  fri: { open: o, close: cl }, //Меняем имя переменных
+} = openingHours;
+console.log(o, cl);
+//////////////////////////////////////////////
 //Распаковка массива
 let [main, , second] = restaurant.categories;
 console.log(main, second);
