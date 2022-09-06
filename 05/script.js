@@ -230,11 +230,13 @@ console.log(3 || 'London'); //Если первый операнд истинн�
 console.log('' || 'London');
 console.log(true || 0);
 console.log(undefined || null);
-restaurant.numGuests = 23;
+restaurant.numGuests = 0;
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; //Существует ли numGuests? Если да, то ничего не делать, если нет, то вставить значение по умолчанию 10. Не сработает с 0
 console.log(guests1);
 let guests2 = restaurant.numGuests || 10; //заменяет кусок кода сверху
 console.log(guests2);
+let guestsCorrect = restaurant.numGuests ?? 10; //Оператор ?? работает так же как и || но только считает null  и undefined истинным значением
+console.log(guestsCorrect);
 // Короткое замыкание (Short Circuiting) && Работает противоположно ||
 console.log(3 && 5);
 console.log('' && 'London');
