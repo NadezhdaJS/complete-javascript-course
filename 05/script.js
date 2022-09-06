@@ -5,7 +5,7 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
-const restaurant = {
+/* const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
@@ -14,9 +14,9 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
-  /* orderDelivery: function (obj) {
-    console.log(obj);
-  }, */
+  // orderDelivery: function (obj) {
+  //  console.log(obj);
+  // },
   //Добавляем значения по умолчанию
   orderDelivery: function ({
     starterIndex = 1,
@@ -43,9 +43,9 @@ const restaurant = {
       close: 24,
     },
   },
-};
+}; */
 
-restaurant.orderDelivery({ address: 'Street 145', starterIndex: 1 }); // При распаковке добавились значения по умолчанию
+/* restaurant.orderDelivery({ address: 'Street 145', starterIndex: 1 }); // При распаковке добавились значения по умолчанию
 //Добавление параметров функции. Нужно, когда много параметров и сложно запомнить порядок
 restaurant.orderDelivery({
   time: '22:30',
@@ -85,10 +85,10 @@ console.log(o, cl);
 //Распаковка массива
 let [main, , second] = restaurant.categories;
 console.log(main, second);
-/* let temp = main;
-main = second;
-second = temp;
-console.log(main, second); */
+//let temp = main;
+//main = second;
+//second = temp;
+//console.log(main, second);
 //Смена значений
 [second, , main] = [main, , second];
 console.log(main, second);
@@ -102,8 +102,79 @@ const nested = [2, 4, [5, 6]];
 const [i, , j] = nested;
 console.log(i, j);
 const [g, , [z, c]] = nested; //здесь
-console.log(g, z, c);
+console.log(g, z, c); */
 
-//
+//////////////////////////////
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  order: function (starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '20:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at  ${time}`
+    );
+  },
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your tasty pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
+};
+//Spread Operator (...) - создает новый массив из нескольких или из значений и массива(ов)
 let [p, m, u] = [1, 2, 3];
 console.log(p, m, u);
+
+let arr = [10, 20, 30];
+let badArr = [1, 2, 3, arr[0], arr[1], arr[2]]; // Плохое дбавление одного массива к другому
+console.log(badArr);
+let newArr = [1, 2, 3, ...arr]; // Оператором Spread ... мы добавили все значения массива arr в текущий
+console.log(newArr);
+console.log(...arr); //Распаковка значений массива с помощь оператора. Используем, когда нужны значения по отдельности
+const newMenu = ['Lemon', ...restaurant.mainMenu]; //Добавили новую позицию меню в объект
+console.log(newMenu);
+let mainMenuCopy = [...restaurant.mainMenu]; //Создание копии массива
+console.log(mainMenuCopy);
+let menu = [...restaurant.mainMenu, ...restaurant.starterMenu]; //Объединение массива. Создается новый массив
+console.log(menu);
+// (...) способен распакавать еще строку, maps, sets в отдельный массив. Например:
+let str = 'Severus';
+let wiz = [...str, 'Snape', '', 'T'];
+/* Выходит [
+    "S",
+    "e",
+    "v",
+    "e",
+    "r",
+    "u",
+    "s",
+    "Snape",
+    "",
+    "T"
+] */
+console.log(wiz);
+//Оператор может распаковать значения только в массив или в аргументы функции. Больше никуда
+
+/* let ingredients = [
+  prompt("Let's make pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 2?'),
+];
+console.log(ingredients); */
+//restaurant.orderPasta(...ingredients); //распаковываем массив в аргументы функции
+//Новая версия JS 2018 позволяет оператору объединять и объекты. Пример:
+let newRestaurant = { city: 'Milan', ...restaurant, founder: 'Maestro' };
+console.log(newRestaurant);
+
+let restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Milano'; //Поменяли наазвание в копии, но в оригинале осталось то же
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
