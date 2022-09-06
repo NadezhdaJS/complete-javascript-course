@@ -114,6 +114,20 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  },
 
   orderDelivery: function ({
     starterIndex = 1,
@@ -128,13 +142,17 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your tasty pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng);
+    console.log(otherIng);
+  },
 };
 //Spread Operator (...) - создает новый массив из нескольких или из значений и массива(ов)
 let [p, m, u] = [1, 2, 3];
 console.log(p, m, u);
 
 let arr = [10, 20, 30];
-let badArr = [1, 2, 3, arr[0], arr[1], arr[2]]; // Плохое дбавление одного массива к другому
+let badArr = [1, 2, 3, arr[0], arr[1], arr[2]]; // Плохое добавление одного массива к другому
 console.log(badArr);
 let newArr = [1, 2, 3, ...arr]; // Оператором Spread ... мы добавили все значения массива arr в текущий
 console.log(newArr);
@@ -178,3 +196,31 @@ let restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Milano'; //Поменяли наазвание в копии, но в оригинале осталось то же
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+
+//////////////////////////
+
+//Rest pattern -используется с левой стороны переменной (до знака равно). Берет остаток элементов и превращает их в новый массив
+let [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+let [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+]; //Не включает в себя пропущенные значения
+console.log(pizza, risotto, otherFood);
+let { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+//Функции c паттерном. В аргументе превращает любое число чисел в массив
+let add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(5, 3, 10, 8, 7, 2);
+let x = [23, 5, 7];
+add(...x); //распаковали значения массива
+restaurant.orderPizza('mushrooms', 'bacon', 'cheese', 'onion');
