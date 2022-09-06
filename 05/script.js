@@ -224,3 +224,23 @@ add(5, 3, 10, 8, 7, 2);
 let x = [23, 5, 7];
 add(...x); //распаковали значения массива
 restaurant.orderPizza('mushrooms', 'bacon', 'cheese', 'onion');
+
+//Короткое замыкание (Short Circuiting) ||
+console.log(3 || 'London'); //Если первый операнд истинный, то оператор возвращает его значение (первое), а второй операнд не выполняется. Происходит короткое замыкание. Если значение второго истинно, то возвращает его значение (второе). Если оба операнда ложные, то возвращается последнее значение ложного операнда.
+console.log('' || 'London');
+console.log(true || 0);
+console.log(undefined || null);
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; //Существует ли numGuests? Если да, то ничего не делать, если нет, то вставить значение по умолчанию 10. Не сработает с 0
+console.log(guests1);
+let guests2 = restaurant.numGuests || 10; //заменяет кусок кода сверху
+console.log(guests2);
+// Короткое замыкание (Short Circuiting) && Работает противоположно ||
+console.log(3 && 5);
+console.log('' && 'London');
+console.log(true && 0);
+console.log(undefined && null);
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'bacon');
+}
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'bacon'); //Заменяет кусок кода выше
