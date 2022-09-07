@@ -233,7 +233,7 @@ console.log(undefined || null);
 restaurant.numGuests = 0;
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10; //Существует ли numGuests? Если да, то ничего не делать, если нет, то вставить значение по умолчанию 10. Не сработает с 0
 console.log(guests1);
-let guests2 = restaurant.numGuests || 10; //заменяет кусок кода сверху
+let guests2 = restaurant.numGuests || 10; //заменяет кусок кода сверху.Не сработает с 0
 console.log(guests2);
 let guestsCorrect = restaurant.numGuests ?? 10; //Оператор ?? работает так же как и || но только считает null  и undefined истинным значением
 console.log(guestsCorrect);
@@ -246,3 +246,31 @@ if (restaurant.orderPizza) {
   restaurant.orderPizza('mushrooms', 'bacon');
 }
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'bacon'); //Заменяет кусок кода выше
+
+//////////////////////
+let rest1 = {
+  name: 'Capri',
+  numGuests: 20,
+};
+
+let rest2 = {
+  name: 'La plaza',
+  owner: 'John P',
+};
+
+/* rest1.numGuests = rest1.numGuests || 10;
+rest2.numGuests = rest2.numGuests || 10; */
+//То же, что и сверху. Не работает с нулем
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+// То же, что и сверху, но считает 0 или undefined за истинное значение и показывает его (0)
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+console.log(rest1);
+console.log(rest2);
+/* rest2.owner = rest2.owner && 'Anonymous';
+rest1.owner = rest1.owner && 'Anonymous'; */
+rest2.owner &&= 'Anonymous'; // То же, что и сверху, но теперь если owner существует, то он считается true, а не undefined как выше и исчезает
+rest1.owner &&= 'Anonymous';
+console.log(rest1);
+console.log(rest2);
