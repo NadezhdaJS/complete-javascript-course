@@ -43,7 +43,7 @@ const game = {
 //Распаковываем имена игроков из объекта game
 const {
   players: [players1, players2],
-} = game;
+} = game; // альтернатива: const [players1, players2] = game.players;
 
 console.log(players1);
 console.log(players2);
@@ -73,10 +73,23 @@ printGoals(...game.scored);
 team is more likely to win, without using an if/else statement or the ternary 
 operator.  */
 
-//let winner = team2 < team1;
-//console.log(winner);
-//team1 < team2 ?? console.log(game.team2);
-let winner =
+/* let winner =
   team1 < team2
     ? console.log(`${team1} is our winner!`)
     : console.log(`${team2} is our winner!`);
+ */
+/* switch (team1 < team2) {
+  case true:
+    console.log(`${game.team1} with ${team1} odds have more chances to win!`);
+    break;
+  case false:
+    console.log(`${game.team2} with ${team2} have more chances to win!`);
+    break;
+  default:
+    console.log(`More chances to have a draw!`);
+    break;
+} */
+team1 < team2 &&
+  console.log(`${game.team1} with ${team1} odds have more chances to win!`);
+team1 > team2 &&
+  console.log(`${game.team2} with ${team2} odds have more chances to win!`);
