@@ -5,7 +5,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-  order: function (starterIndex, mainIndex) {
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
   openingHours: {
@@ -23,20 +23,15 @@ const restaurant = {
     },
   },
 
-  orderDelivery: function ({
-    starterIndex = 1,
-    mainIndex = 0,
-    time = '20:00',
-    address,
-  }) {
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
     console.log(
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at  ${time}`
     );
   },
-  orderPasta: function (ing1, ing2, ing3) {
+  orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your tasty pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
-  orderPizza: function (mainIng, ...otherIng) {
+  orderPizza(mainIng, ...otherIng) {
     console.log(mainIng);
     console.log(otherIng);
   },
@@ -54,3 +49,6 @@ for (const item of menu) console.log(item); //Цикл for-of. Берет каж
 for (const [i, item] of menu.entries()) {
   console.log(`${i + 1}: ${item}`);
 } // Здесь мы сразу распаковываем каждый массив в переменные. И получается то же, что и сверху
+
+//ES6 Объект 1 можно добавить в объект 2 просто вписав туда переменную: openingHours. Также можно убрать слово function и двоеточие из всех функций внутри объекта и ничего не изменится.
+//Еще можно за пределами объекта создать массив и передать элементы массива во вложенный объект. Или даше посчитать его. Пример: https://i.imgur.com/LYV7YKv.jpeg
