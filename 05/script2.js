@@ -1,4 +1,20 @@
 'use strict';
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekdays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekdays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -7,20 +23,6 @@ const restaurant = {
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
   },
 
   orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
@@ -35,6 +37,20 @@ const restaurant = {
     console.log(mainIng);
     console.log(otherIng);
   },
+  /* openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0, // Open 24 hours
+      close: 24,
+    },
+  }, */
 };
 ////////////////////////////////
 //Цикл for-of
@@ -56,17 +72,43 @@ for (const [i, item] of menu.entries()) {
 ////////////////
 //Optional Chaining - Опциональная цепочка
 //console.log(restaurant.openingHours.mon.open); // Выдаст ошибку, так как restaurant.openingHours.mon не существует. Чтобы такой ошибки не было, нужно проверить, существует ли restaurant.openingHours.mon
-if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open); //Здесь ничего не выполнится, и ошибки не будет. Но может быть так, что openingHours тоже не существует и тогда нужна еще проверка:
-if (restaurant.openingHours && restaurant.openingHours.mon)
-  console.log(restaurant.openingHours.mon.open);
+//if (restaurant.openingHours.mon) console.log(restaurant.openingHours.mon.open); //Здесь ничего не выполнится, и ошибки не будет. Но может быть так, что openingHours тоже не существует и тогда нужна еще проверка:
+//if (restaurant.openingHours && restaurant.openingHours.mon)
+// console.log(restaurant.openingHours.mon.open);
 //Но можно сделать следующим способом:
-console.log(restaurant.openingHours?.mon?.open); // (?.) Проверяет, существует ли restaurant.openingHours и .mon и только тогда выполняет open. Если не существует, то выдает undefined (если это не null или undefined)
-let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun '];
-for (const day of days) {
+//console.log(restaurant.openingHours?.mon?.open); // (?.) Проверяет, существует ли restaurant.openingHours и .mon и только тогда выполняет open. Если не существует, то выдает undefined (если это не null или undefined)
+/* let days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun '];
+ */ /* for (const day of days) {
   const open = restaurant.openingHours[day]?.open ?? 'another day'; //Если времени открытия не существует, то присвоить значение another day
   console.log(`On ${day}, we open at ${open}`);
-}
+} */
 //Операторы (??) и (.?) появились одновременно в 2020 году и существуют, чтобы работать друг с другом
 console.log(restaurant.order?.(0, 1) ?? `Method does not exist`); //Работает и с методами. Если существует, вызываем его, если нет, то пишем, что он не существует
 let users = [{ name: 'Jonas', email: 'i@mail.ru' }];
 console.log(users[0]?.name ?? `User arr is empty`); //Существует ли name в массиве?
+
+/////
+/// Циклы объектов, ключей, значений и entries
+// Property NAMES
+
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+// Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire object
+const entries = Object.entries(openingHours); //ключи+значения
+// console.log(entries);
+
+// [key, value]
+//распаковка
+for (const [day, { open, close }] of entries) {
+  console.log(`On ${day} we open at ${open} and close at ${close}`);
+}
