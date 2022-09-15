@@ -91,7 +91,7 @@ console.log(users[0]?.name ?? `User arr is empty`); //Существует ли 
 /// Циклы объектов, ключей, значений и entries
 // Property NAMES
 
-const properties = Object.keys(openingHours);
+/* const properties = Object.keys(openingHours);
 console.log(properties);
 
 let openStr = `We are open on ${properties.length} days: `;
@@ -111,4 +111,39 @@ const entries = Object.entries(openingHours); //ключи+значения
 //распаковка
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
-}
+} */
+//////////////////
+//Sets (Множество) Показывает уникальные значения, которые становятся элементами множества. Один элемент нельзя вытащить из множества, как, анпример, из массива. Типичное использование — удаление дубликатов из массива
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+console.log(ordersSet);
+
+console.log(new Set('Jonas')); //Создали новое множество
+
+console.log(ordersSet.size); //Проверили размер (только уникальные значения)
+console.log(ordersSet.has('Pizza')); //Проверяем есть ли пицца в множествею Покажет true or false
+console.log(ordersSet.has('Bread'));
+ordersSet.add('Garlic Bread'); //Добавляем блюдо в множество
+ordersSet.add('Garlic Bread');
+ordersSet.delete('Risotto'); //Удаляем элемент из множества
+// ordersSet.clear();//удалить все элементы
+console.log(ordersSet);
+
+for (const order of ordersSet) console.log(order); // Можно  каждый элемент отправить в цикл
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+const staffUnique = [...new Set(staff)]; //Здесь мы создали масив уникальных значений путем распаковки множества. Если бы квадратных ковычек и Spead оператора не было было, то образовалось бы множество, а нам нужен массив.
+console.log(staffUnique);
+
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+); //узнаем количество уникальных значений массива путем создания множества и метода size
+
+console.log(new Set('jonasschmedtmann').size); //проверяет количество уникальных букв
