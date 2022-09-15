@@ -91,7 +91,7 @@ console.log(users[0]?.name ?? `User arr is empty`); //Существует ли 
 /// Циклы объектов, ключей, значений и entries
 // Property NAMES
 
-/* const properties = Object.keys(openingHours);
+/* const properties = Object.keys(openingHours);//это нужно потому, что объекты не итераторы и к ним нельзя применять циклы
 console.log(properties);
 
 let openStr = `We are open on ${properties.length} days: `;
@@ -181,3 +181,41 @@ console.log(rest);
 console.log(rest.size);
 
 console.log(rest.get(arr)); //чтобы прочитать значения ключа, нужно массив добавить в переменную и уже ее добавить в карту
+console.log(
+  `/////////////////////////////////////////////////////////////////////////////////`
+);
+
+// Maps: Iteration
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'JavaScript'],
+  ['correct', 3],
+  [true, 'Correct 🎉'],
+  [false, 'Try again!'],
+]); //сразу создаем карту с массивамию. Более популярный метод, чем предыдущий, если ключи и значения сразу известны
+console.log(question);
+
+// Convert object to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours)); //Превращаем объект в карту
+console.log(hoursMap);
+
+// Quiz app
+console.log(question.get('question'));
+//Цикл элементов карты  question
+for (const [key, value] of question) {
+  if (typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+}
+// const answer = Number(prompt('Your answer'));// получение значения из promt
+const answer = 3;
+console.log(answer);
+
+console.log(question.get(question.get('correct') === answer)); //если ключ correct совпадает с ответом, то вернуть ключ true и его значение correct
+
+// Convert map to array
+console.log([...question]);
+// console.log(question.entries());
+console.log([...question.keys()]);
+console.log([...question.values()]);
