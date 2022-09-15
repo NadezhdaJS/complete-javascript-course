@@ -113,7 +113,7 @@ for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 } */
 //////////////////
-//Sets (Множество) Показывает уникальные значения, которые становятся элементами множества. Один элемент нельзя вытащить из множества, как, анпример, из массива. Типичное использование — удаление дубликатов из массива
+//Sets (Множество, сет) Показывает уникальные значения, которые становятся элементами множества. Один элемент нельзя вытащить из множества, как, анпример, из массива. Типичное использование — удаление дубликатов из массива
 const ordersSet = new Set([
   'Pasta',
   'Pizza',
@@ -147,3 +147,37 @@ console.log(
 ); //узнаем количество уникальных значений массива путем создания множества и метода size
 
 console.log(new Set('jonasschmedtmann').size); //проверяет количество уникальных букв
+
+///////////////////////////
+//Maps - Карта
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano'); //Добавляем ключ и значение
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name')); //Чтобы прочитать значение, нужно использовать метод get и ключ
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+console.log(rest.has('categories')); //Проверяет существование элемента
+rest.delete(2); //удаляет по ключу
+// rest.clear();
+
+const arr = [1, 2];
+rest.set(arr, 'Test'); //добавили массив как ключ
+rest.set(document.querySelector('h1'), 'Heading'); //
+console.log(rest);
+console.log(rest.size);
+
+console.log(rest.get(arr)); //чтобы прочитать значения ключа, нужно массив добавить в переменную и уже ее добавить в карту
