@@ -96,7 +96,7 @@ team1 > team2 &&
  */
 //1
 
-for (const [i, player] of game.scored.entries()) {
+/* for (const [i, player] of game.scored.entries()) {
   console.log(`Goal ${i + 1}: ${player}`);
 }
 // 2.
@@ -111,14 +111,14 @@ for (const [team, odd] of Object.entries(game.odds)) {
   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
   console.log(`Odd of ${teamStr} ${odd}`);
 }
-
+ */
 // Odd of victory Bayern Munich: 1.33
 // Odd of draw: 3.25
 // Odd of victory Borrussia Dortmund: 6.5
 
 // BONUS
 // So the solution is to loop over the array, and add the array elements as object properties, and then increase the count as we encounter a new occurence of a certain element
-const scorers = {};
+/* const scorers = {};
 for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
@@ -155,8 +155,25 @@ for (const [min, anEvent] of gameEvents) {
       ? '[FIRST HALF] ' + min + ':' + anEvent
       : '[SECOND HALF] ' + min + ':' + anEvent
   );
-}
+} */
 /* for (const [min, event] of gameEvents) {
   const half = min <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${min}: ${event}`);
 } */
+document.body.append(document.createElement('textarea'));
+document.body.append(document.createElement('button'));
+
+document.querySelector('button').addEventListener('click', function () {
+  const text = document.querySelector('textarea').value;
+  const rows = text.split('\n');
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.toLowerCase().trim().split('_');
+
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
+  }
+});
