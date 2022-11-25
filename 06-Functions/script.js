@@ -108,7 +108,6 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArr('Hi')('Jonas');
 
-
 ///////////////////////////////////////
 // The call and apply Methods
 const lufthansa = {
@@ -120,7 +119,7 @@ const lufthansa = {
     console.log(
       `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
     );
-    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name }); //this используется, чтобы не менять объект выше
   },
 };
 
@@ -135,7 +134,7 @@ const eurowings = {
 
 const book = lufthansa.book;
 
-// Does NOT work
+// Does NOT work из-за this
 // book(23, 'Sarah Williams');
 
 // Call method
@@ -153,16 +152,16 @@ const swiss = {
 
 book.call(swiss, 583, 'Mary Cooper');
 
-// Apply method
+// Apply method - этот метод сейчас не используют
 const flightData = [583, 'George Cooper'];
 book.apply(swiss, flightData);
 console.log(swiss);
 
-book.call(swiss, ...flightData);
+book.call(swiss, ...flightData); //так делают или ниже
 
 ///////////////////////////////////////
 // The bind Method
-// book.call(eurowings, 23, 'Sarah Williams');
+// book.call(eurowings, 23, 'Sarah Williams'); //создает новую функцию
 
 const bookEW = book.bind(eurowings);
 const bookLH = book.bind(lufthansa);
@@ -170,14 +169,14 @@ const bookLX = book.bind(swiss);
 
 bookEW(23, 'Steven Williams');
 
-const bookEW23 = book.bind(eurowings, 23);
+const bookEW23 = book.bind(eurowings, 23); //Заранее определенные 2 параметра, можно имена разные брать ниже
 bookEW23('Jonas Schmedtmann');
 bookEW23('Martha Cooper');
 
 // With Event Listeners
 lufthansa.planes = 300;
 lufthansa.buyPlane = function () {
-  console.log(this);
+  console.log(this); //отображает элемент кнопка, а не значение
 
   this.planes++;
   console.log(this.planes);
@@ -192,7 +191,7 @@ document
 const addTax = (rate, value) => value + value * rate;
 console.log(addTax(0.1, 200));
 
-const addVAT = addTax.bind(null, 0.23);
+const addVAT = addTax.bind(null, 0.23); //заранее заданный rate. в аргументах он должен быть первым
 // addVAT = value => value + value * 0.23;
 
 console.log(addVAT(100));
@@ -206,4 +205,3 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
-*/
