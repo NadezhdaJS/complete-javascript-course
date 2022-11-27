@@ -28,7 +28,7 @@ createBooking('LH123', undefined, 1000); //если хотим пропусти�
 
 ///////////////////////////////////////
 // How Passing Arguments Works: Values vs. Reference
-const flight = 'LH234';
+/* const flight = 'LH234';
 const jonas = {
   name: 'Jonas Schmedtmann',
   passport: 24739479284,
@@ -289,4 +289,12 @@ const boardPassengers = function (n, wait) {
 };
 
 const perGroup = 1000;
-boardPassengers(180, 3);
+boardPassengers(180, 3); */
+
+(function () {
+  const header = document.querySelector('h1');
+  header.style.color = 'red';
+  document.querySelector('body').addEventListener('click', function () {
+    header.style.color = 'blue';
+  });
+})();
