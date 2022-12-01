@@ -58,17 +58,23 @@ let okFood = function (current, recommended) {
 let findSarahDog = function () {};
 
 console.log(dogs);
-let y = dogs[0];
-if (y.owners.find(own => own === 'Bob')) {
-  console.log(`fff`);
-}
-
-dogs.forEach((element, i) => {
-  if (dogs.includes('Sarah')) {
-    console.log(`fff`);
+//2
+dogs.forEach((element, index) => {
+  if (dogs[index].owners.find(own => own === 'Sarah')) {
+    dogs[index].curFood < dogs[index].recommendedFood
+      ? console.log(`Sarah's dog eats too little`)
+      : console.log(`Sarah's dog eats too many`);
   }
 });
+////////////////////////////////////// 3/////////////////////////////////
 
-/* Find Sarah's dog and log to the console whether it's eating too much or too 
-little. Hint: Some dogs have multiple owners, so you first need to find Sarah in 
-the owners array, and so this one is a bit tricky (on purpose) 🤓  */
+/* if (
+      dogs[index].curFood > dogs[index].recommendedFood * 0.9 &&
+      dogs[index].curFood < dogs[index].recommendedFood * 1.1
+    ) {
+      console.log(`Sarah's dog eats good`);
+    } else if (dogs[index].curFood < dogs[index].recommendedFood) {
+      console.log(`Sarah's dog eats too little`);
+    } else {
+      console.log(`Sarah's dog eats too many`);
+    } */
