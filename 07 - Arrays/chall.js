@@ -103,13 +103,11 @@ console.log(
 );
 console.log(dogsCopy);
 
-/* if (
-      dogs[index].curFood > dogs[index].recommendedFood * 0.9 &&
-      dogs[index].curFood < dogs[index].recommendedFood * 1.1
-    ) {
-      console.log(`Sarah's dog eats good`);
-    } else if (dogs[index].curFood < dogs[index].recommendedFood) {
-      console.log(`Sarah's dog eats too little`);
-    } else {
-      console.log(`Sarah's dog eats too many`);
-    } */
+console.log(`////////////////////////////////////////`);
+function largest(n, xs) {
+  return xs
+    .sort(function (a, b) {
+      return b - a;
+    })
+    .slice(0, n);
+}
