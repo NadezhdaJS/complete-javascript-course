@@ -34,6 +34,8 @@ const calcAverageHumanAge = function (ages) {
 /* console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 console.log(calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4])); */
 
+/////////// Challenge 2////////////////
+
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
   { weight: 8, curFood: 200, owners: ['Matilda'] },
@@ -66,7 +68,40 @@ dogs.forEach((element, index) => {
       : console.log(`Sarah's dog eats too many`);
   }
 });
-////////////////////////////////////// 3/////////////////////////////////
+//3/
+let ownersEatTooMuch = [];
+let ownersEatTooLittle = [];
+let eatOkFood = [];
+
+dogs.forEach((element, index) => {
+  if (
+    dogs[index].curFood > dogs[index].recommendedFood * 0.9 &&
+    dogs[index].curFood < dogs[index].recommendedFood * 1.1
+  ) {
+    console.log(true);
+    eatOkFood.push(dogs[index].owners);
+  } else if (dogs[index].recommendedFood === dogs[index].curFood) {
+    console.log(true);
+  } else if (dogs[index].curFood < dogs[index].recommendedFood) {
+    ownersEatTooLittle.push(dogs[index].owners);
+  } else {
+    ownersEatTooMuch.push(dogs[index].owners);
+  }
+});
+let eatTooLittle = ownersEatTooLittle.flat();
+let eatTooMuch = ownersEatTooMuch.flat();
+console.log(
+  `${eatTooMuch[0]} and ${eatTooMuch[1]} and ${eatTooMuch[2]}'s dogs eat too much!" and "${eatTooLittle[0]} and ${eatTooLittle[1]}'s dogs eat too little!`
+);
+console.log(eatOkFood);
+
+let dogsCopy = [...dogs];
+console.log(
+  dogsCopy.sort(function (a, b) {
+    return a.recommendedFood - b.recommendedFood;
+  })
+);
+console.log(dogsCopy);
 
 /* if (
       dogs[index].curFood > dogs[index].recommendedFood * 0.9 &&
