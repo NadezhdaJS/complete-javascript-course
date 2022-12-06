@@ -102,12 +102,3 @@ console.log(
   })
 );
 console.log(dogsCopy);
-
-console.log(`////////////////////////////////////////`);
-function largest(n, xs) {
-  return xs
-    .sort(function (a, b) {
-      return b - a;
-    })
-    .slice(0, n);
-}
