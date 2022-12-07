@@ -39,12 +39,12 @@ document.addEventListener('keydown', function (e) {
 ///////////////////////////////////////
 // Button scrolling
 btnScrollTo.addEventListener('click', function (e) {
-  const s1coords = section1.getBoundingClientRect();
+  const s1coords = section1.getBoundingClientRect(); //координаты
   console.log(s1coords);
 
-  console.log(e.target.getBoundingClientRect());
+  console.log(e.target.getBoundingClientRect()); // координаты кнопки
 
-  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset);
+  console.log('Current scroll (X/Y)', window.pageXOffset, window.pageYOffset); //расстояние клика от верха окна
 
   console.log(
     'height/width viewport',
@@ -56,7 +56,7 @@ btnScrollTo.addEventListener('click', function (e) {
   // window.scrollTo(
   //   s1coords.left + window.pageXOffset,
   //   s1coords.top + window.pageYOffset
-  // );
+  // ); текущая позиция + скролл
 
   // window.scrollTo({
   //   left: s1coords.left + window.pageXOffset,
@@ -64,7 +64,7 @@ btnScrollTo.addEventListener('click', function (e) {
   //   behavior: 'smooth',
   // });
 
-  section1.scrollIntoView({ behavior: 'smooth' });
+  section1.scrollIntoView({ behavior: 'smooth' }); //современный вариант
 });
 
 ///////////////////////////////////////
@@ -304,28 +304,32 @@ console.log(document.head);
 console.log(document.body);
 
 const header = document.querySelector('.header');
-const allSections = document.querySelectorAll('.section');
+const allSections = document.querySelectorAll('.section'); Не обновляется автоматически. Node list
 console.log(allSections);
 
 document.getElementById('section--1');
-const allButtons = document.getElementsByTagName('button');
+const allButtons = document.getElementsByTagName('button'); Выбирает все теги кнопка на странице. Обновляется автоматически, если удалить или добавить элемент. HTML collection 
 console.log(allButtons);
 
-console.log(document.getElementsByClassName('btn'));
+console.log(document.getElementsByClassName('btn')); обновляется автоматически
 
 // Creating and inserting elements
+dotContainer.insertAdjacentHTML(
+        'beforeend',
+        `<button class="dots__dot" data-slide="${i}"></button>`
+      );  самый простой ваиант создания элемента
 const message = document.createElement('div');
 message.classList.add('cookie-message');
 // message.textContent = 'We use cookied for improved functionality and analytics.';
 message.innerHTML =
   'We use cookied for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
-// header.prepend(message);
-header.append(message);
+// header.prepend(message); самый первый элемент в header
+header.append(message); самый последний в header
 // header.append(message.cloneNode(true));
 
-// header.before(message);
-// header.after(message);
+// header.before(message); до header
+// header.after(message); после header
 
 // Delete elements
 document
@@ -394,7 +398,7 @@ const alertH1 = function (e) {
   alert('addEventListener: Great! You are reading the heading :D');
 };
 
-h1.addEventListener('mouseenter', alertH1);
+h1.addEventListener('mouseenter', alertH1); когда пользователь наводит мышь на элемент
 
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
