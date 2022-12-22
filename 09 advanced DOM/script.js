@@ -144,19 +144,19 @@ const stickyNav = function (entries) {
   // console.log(entry);
 
   if (!entry.isIntersecting) nav.classList.add('sticky');
-  else nav.classList.remove('sticky');
+  else nav.classList.remove('sticky'); //при прокрутке вверх меню исчезает
 };
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
-  threshold: 0,
-  rootMargin: `-${navHeight}px`,
+  threshold: 0, //навигация появляется, когда header полностью скрывается из вида
+  rootMargin: `-${navHeight}px`, //чтобы навигация была ровно до первой секции. То есть марджин равен высоте навигации
 });
 
 headerObserver.observe(header);
 
 ///////////////////////////////////////
-// Reveal sections
+// Reveal sections Плавное появление секций при скролле (анимация). Скрываем все секции классом hidden. Добавляем их, когда курсор достигает секции
 const allSections = document.querySelectorAll('.section');
 
 const revealSection = function (entries, observer) {
@@ -186,10 +186,11 @@ const loadImg = function (entries, observer) {
 
   if (!entry.isIntersecting) return;
 
-  // Replace src with data-src
+  // Replace src with data-src замена маленьких заблюренных фото на большие
   entry.target.src = entry.target.dataset.src;
 
   entry.target.addEventListener('load', function () {
+    //при загрузке фото
     entry.target.classList.remove('lazy-img');
   });
 
@@ -199,7 +200,7 @@ const loadImg = function (entries, observer) {
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
   threshold: 0,
-  rootMargin: '200px',
+  rootMargin: '200px', //загрузка должна проходить за 200 пикселей до картинки
 });
 
 imgTargets.forEach(img => imgObserver.observe(img));
@@ -488,7 +489,7 @@ const obsCallback = function (entries, observer) {
 
 const obsOptions = {
   root: null,
-  threshold: [0, 0.2],
+  threshold: [0, 0.2], 0 означает, что элемент (меню) полностью скрылся из вида. 20%
 };
 
 const observer = new IntersectionObserver(obsCallback, obsOptions);
